@@ -1,11 +1,11 @@
 import React from 'react'
 import imgsrc from "./../img/logo.png";
 import Login from '../Pages/signup/SignUp';
-
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <div className="header-area ">
             <div id="sticky-header" className="main-header-area">
                 <div className="container">
@@ -13,9 +13,9 @@ const Header = () => {
                         <div className="row align-items-center">
                             <div className="col-xl-3 col-lg-3">
                                 <div className="logo">
-                                    <a href="index.html">
-                                        <img src={imgsrc} alt=""/> 
-                                    </a>
+                                <Link to="/">
+                                    <img src={imgsrc} alt=""/><img/>
+                                </Link>
                                 </div>
                             </div>
                             <div className="col-xl-6 col-lg-6">
@@ -47,7 +47,8 @@ const Header = () => {
                             <div className="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div className="buy_tkt">
                                     <div className="book_btn d-none d-lg-block">
-                                        <a href="#">SignUp/SignIn</a>
+                                        {/* <a href="#">SignUp/SignIn</a> */}
+                                        <Link to="/login">SignUp/SignIn</Link>
                                     </div>
                                 </div>
                             </div>
@@ -56,11 +57,10 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    <Login />
                 </div>
             </div>
         </div>
-    </div>
+    </header>
   )
 }
 

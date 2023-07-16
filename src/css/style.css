@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Anton|Monoton|Muli:400,400i,500,500i,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Anton|Monoton|Muli:400,400i,500,500i,600&display=swap");
 /* line 1, ../../Arafath/CL/December/236. Event-02/HTML/scss/_extend.scss */
+/* .section{
+  width: 100%;
+  padding: 30px;
+} */
+
 .flex-center-start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1498,6 +1503,8 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  left: 0;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
@@ -2571,6 +2578,8 @@ h3 {
 .footer .footer_top {
   padding-top: 148px;
   padding-bottom: 140px;
+  /* position: absolute;
+  bottom: 0px; */
 }
 
 @media (max-width: 767px) {

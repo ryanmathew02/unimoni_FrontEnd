@@ -10,11 +10,24 @@ import './css/flaticon.css'
 import './css/slicknav.css'
 import './css/style.css'
 import Header from './components/header';
+import Footer from './components/Footer'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import Home from './Pages/home/Home';
+import Login from './Pages/signup/SignUp';
 
 
 function App() {
   return (
-      <Header/>     
+      <div>
+        <BrowserRouter>
+        <Header/>
+          <Routes>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/*" element={<Home/>}/>
+          </Routes>
+        <Footer/>        
+        </BrowserRouter>
+      </div>    
   );
 }
 
