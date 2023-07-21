@@ -3,12 +3,12 @@ import React from 'react'
 const Contact = () => {
     return (
         <div>
-            <div class="bradcam_area">
-                <div class="single_bradcam  d-flex align-items-center bradcam_bg_1 overlay">
+            <div className="slider_area">
+                <div className="single_slider  d-flex align-items-center slider_bg_1 overlay">
                     <div class="container">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-xl-12">
-                                <div class="bradcam_text text-center">
+                                <div class="slider_text text-center">
                                     <div class="shape_1 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                                         <img src={require('./../../img/shape/shape_1.svg')} alt=""></img>
                                     </div>

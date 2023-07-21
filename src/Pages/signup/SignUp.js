@@ -20,7 +20,7 @@ const Login = () => {
     if (!Email.match(validRegex))
       return alert("Invalid Email format")
     else {
-      axios.post("http://localhost:5000/user/signUp", {
+      axios.post("http://localhost:5050/user/signUp", {
         name: Name,
         email: Email,
         password: Password,
@@ -36,43 +36,48 @@ const Login = () => {
   }
 
   return (
-    <div className='slider_area'>
-      <div className='single_slide'>
-        {
-          sign ? (
-            <div className="form-container sign-up-container">
-              <h1>Create Account</h1>
-              <span>or use your email for registration</span>
-              <input value={Name} type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
-              <input value={Phone} type="number" placeholder="Phone Number" onChange={e => setphone(e.target.value)} />
-              <input value={Email} type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
-              <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-              <input value={Repassword} type="password" placeholder="Re-Password" onChange={e => setRepassword(e.target.value)} />
-              <button onClick={submitForm}>Sign Up</button>
-              <br></br>
-              <div className='button-parent'>
-                <button className='loginButton' onClick={() => setsign(false)}>SignIn</button>
+    <div>
+      <div className="slider_area">
+        <div className="single_slider d-flex justify-content-center slider_bg_1 overlay">
+          <div className="container" style={{top:"25vh",position:"absolute"}}>
+            <div className="row align-items-center justify-content-center">
+              <div className="col-xl-12">
+                {
+                  sign ? (
+                    <div className="form-container sign-up-container">
+                      <h1>Create Account</h1>
+                      <span>or use your email for registration</span>
+                      <input value={Name} type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
+                      <input value={Phone} type="number" placeholder="Phone Number" onChange={e => setphone(e.target.value)} />
+                      <input value={Email} type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
+                      <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                      <input value={Repassword} type="password" placeholder="Re-Password" onChange={e => setRepassword(e.target.value)} />
+                      <button onClick={submitForm}>Sign Up</button>
+                      <br></br>
+                      <div className='button-parent'>
+                        <button className='loginButton' onClick={() => setsign(false)}>SignIn</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="form-container sign-up-container">
+                      <h1>Create </h1>
+                      <span>or use your email for registration</span>
+                      <input value={Email} type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
+                      <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                      <button onClick={submitForm}>Sign In</button>
+                      <br></br>
+                      <div className='button-parent'>
+                        <button className='loginButton' onClick={() => setsign(true)}>SignUp</button>
+                      </div>
+                    </div>
+                  )
+                }
               </div>
             </div>
-          ) : (
-            <div className="form-container sign-up-container">
-              <h1>Create </h1>
-              <span>or use your email for registration</span>
-              <input value={Email} type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
-              <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-              <button onClick={submitForm}>Sign In</button>
-              <br></br>
-              <div className='button-parent'>
-                <button className='loginButton' onClick={() => setsign(true)}>SignUp</button>
-              </div>
-            </div>
-          )
-        }
+          </div>
+        </div>
       </div>
-
     </div>
-
-
   )
 }
 
