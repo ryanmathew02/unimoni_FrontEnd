@@ -22,24 +22,24 @@ const Header = () => {
                                 <div className="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">HOME</a></li>
-                                            <li><a href="performer.html">PERFORMER</a></li>
+                                            <li><Link to="/">Home</Link></li>
+                                            <li><Link to="/performers">Performer</Link></li>
                                             
                                             <li><a href="#">PAGES <i className="ti-angle-down"></i></a>
                                                 <ul className="submenu">
                                                     <li><a href="about.html">about</a></li>
                                                     <li><a href="Program.html">Program</a></li>
-                                                    <li><a href="Venue.html">Venue</a></li>
-                                                    <li><a href="elements.html">elements</a></li>
+                                                    {/* <li><a href="Venue.html">Venue</a></li>
+                                                    <li><a href="elements.html">elements</a></li> */}
                                                 </ul>
                                             </li>
-                                            <li><a href="#">blog <i className="ti-angle-down"></i></a>
+                                            {/* <li><a href="#">blog <i className="ti-angle-down"></i></a>
                                                 <ul className="submenu">
                                                     <li><a href="blog.html">blog</a></li>
                                                     <li><a href="single-blog.html">single-blog</a></li>
                                                 </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            </li> */}
+                                            <li><Link to="/contact">Contact</Link></li>
                                         </ul>
                                     </nav>
                                 </div>

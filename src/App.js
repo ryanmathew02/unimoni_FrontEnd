@@ -14,6 +14,8 @@ import Footer from './components/Footer'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './Pages/home/Home';
 import Login from './Pages/signup/SignUp';
+import Performer from './Pages/performers/performer';
+import Contact from './Pages/contact/contact'
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Header/>
           <Routes>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/performers" element={<Performer/>}/>
+            <Route path="/contact" element={<Contact/>}/>
             <Route path="/*" element={<Home/>}/>
           </Routes>
         <Footer/>        
