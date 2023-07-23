@@ -6,9 +6,10 @@ const Home = () => {
     const [data, setdata] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5050/home/getHomeData")
+        axios.get("http://localhost:5000/home/getHomeData")
             .then(function (response) {
-                console.log(response)
+                console.log(response);
+                setdata(response);
             })
     })
 

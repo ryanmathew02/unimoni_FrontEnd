@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Logi.css"
 import axios from 'axios'
+import { GoogleLogin } from '@react-oauth/google';
+
 
 
 const Login = () => {
@@ -11,6 +13,29 @@ const Login = () => {
   const [Phone, setphone] = useState("")
   const [sign, setsign] = useState(false)
 
+  const submitForm2 = () =>{
+    if(Password=="")
+      return alert("Password Field is Empty");
+    if(Email == "")
+      return alert("Enter Email ID");
+    else{
+      axios.post("http://localhost:5000/users/signIn",{
+        email: Email,
+        password: Password
+      })
+      .then(function(response){
+        console.log(response);
+        if(response.data.code==200)
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+        else
+          alert("Something went wrong");
+      })
+      .catch(function(error){
+        console.log(error);
+      })
+    }
+  }
+
   const submitForm = () => {
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (Password != Repassword)
@@ -20,7 +45,7 @@ const Login = () => {
     if (!Email.match(validRegex))
       return alert("Invalid Email format")
     else {
-      axios.post("http://localhost:5050/user/signUp", {
+      axios.post("http://localhost:5000/user/signUp", {
         name: Name,
         email: Email,
         password: Password,
@@ -35,11 +60,18 @@ const Login = () => {
     }
   }
 
+      const responseMessage = (response) => {
+        console.log(response);
+      };
+      const errorMessage = (error) => {
+        console.log(error);
+      };
+
   return (
     <div>
       <div className="slider_area">
         <div className="single_slider d-flex justify-content-center slider_bg_1 overlay">
-          <div className="container" style={{top:"25vh",position:"absolute"}}>
+          <div className="container" style={{ top: "25vh", position: "absolute" }}>
             <div className="row align-items-center justify-content-center">
               <div className="col-xl-12">
                 {
@@ -53,10 +85,13 @@ const Login = () => {
                       <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                       <input value={Repassword} type="password" placeholder="Re-Password" onChange={e => setRepassword(e.target.value)} />
                       <button onClick={submitForm}>Sign Up</button>
+                      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+
                       <br></br>
                       <div className='button-parent'>
                         <button className='loginButton' onClick={() => setsign(false)}>SignIn</button>
                       </div>
+                      <br></br>
                     </div>
                   ) : (
                     <div className="form-container sign-up-container">
@@ -64,11 +99,13 @@ const Login = () => {
                       <span>or use your email for registration</span>
                       <input value={Email} type="email" placeholder="Email" onChange={e => setemail(e.target.value)} />
                       <input value={Password} type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-                      <button onClick={submitForm}>Sign In</button>
+                      <button onClick={submitForm2}>Sign In</button>
                       <br></br>
                       <div className='button-parent'>
                         <button className='loginButton' onClick={() => setsign(true)}>SignUp</button>
                       </div>
+                      <br></br>
+                      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
                     </div>
                   )
                 }

@@ -15,7 +15,8 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './Pages/home/Home';
 import Login from './Pages/signup/SignUp';
 import Performer from './Pages/performers/performer';
-import Contact from './Pages/contact/contact'
+import Contact from './Pages/contact/contact';
+import AddEvent from './Pages/addEvent/AddEvent';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <BrowserRouter>
         <Header/>
           <Routes>
+            <Route path="/addEvent" element={<AddEvent/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/performers" element={<Performer/>}/>
             <Route path="/contact" element={<Contact/>}/>
