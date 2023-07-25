@@ -6,12 +6,10 @@ const Home = () => {
     const [data, setdata] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/home/getHomeData")
-            .then(function (response) {
-                console.log(response);
-                setdata(response);
-            })
-    })
+        axios.get("http://localhost:5000/home/getHomeData").then(function (response) {
+            setdata(response.data);
+        })
+    },[])
 
     return (
         <div>

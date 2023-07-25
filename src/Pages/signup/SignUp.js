@@ -25,8 +25,10 @@ const Login = () => {
       })
       .then(function(response){
         console.log(response);
-        if(response.data.code==200)
-          localStorage.setItem('token', JSON.stringify(response.data.token));
+        if(response.data.code==200){
+          localStorage.setItem('token', response.data.token);
+          window.location.reload();
+        }
         else
           alert("Something went wrong");
       })
