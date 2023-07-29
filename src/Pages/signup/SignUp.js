@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import "./Logi.css"
 import axios from 'axios'
 import { GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 
 
 
-const Login = () => {
+const Login = ({setcheckLocal}) => {
+  const navigate = useNavigate();
   const [Name, setName] = useState("")
   const [Email, setemail] = useState("")
   const [Password, setPassword] = useState("")
@@ -27,7 +29,8 @@ const Login = () => {
         console.log(response);
         if(response.data.code==200){
           localStorage.setItem('token', response.data.token);
-          window.location.reload();
+          setcheckLocal(true);
+          navigate("/");
         }
         else
           alert("Something went wrong");

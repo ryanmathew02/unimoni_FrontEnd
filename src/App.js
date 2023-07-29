@@ -19,8 +19,8 @@ import Contact from './Pages/contact/contact';
 import AddEvent from './Pages/addEvent/AddEvent';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import axios from 'axios'
+import SignIn from './Pages/signup/SignIn';
 import { useEffect, useState } from 'react';
-
 
 function App() {
   const [checkLocal, setcheckLocal] = useState(false);
@@ -31,13 +31,17 @@ function App() {
         token: localStorage.getItem('token')
       })
         .then(response => {
-          setcheckLocal(response.data.email)
+          setcheckLocal(response.data.status!="Failed Token")
         })
         .catch(error => {
-
+          alert("Session Expired. Login Again");
+          setcheckLocal(false);
+          
         })
-    } else {
-      setcheckLocal(false);
+      } else {
+        alert("Session Expired. Login Again");
+        setcheckLocal(false);
+       
     }
   })
 
@@ -47,10 +51,11 @@ function App() {
         <Header checkLocal={checkLocal} />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/addEvent" element={<AddEvent />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/addEvent" element={<AddEvent checkLocal={checkLocal}/>} />
+          <Route path="/login" element={<Login setcheckLocal={setcheckLocal}/>} />
           <Route path="/performers" element={<Performer />} />
           <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/signIn" element={<SignIn s/>} /> */}
           <Route path="/*" element={<Home />} />
         </Routes>
         <Footer />

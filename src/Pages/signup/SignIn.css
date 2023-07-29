@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+
+.logo{
+  display: flex;
+  width: 50%;
+  height: 50%;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.loginOuter {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-repeat: repeat;
+}
+
+.loginInner {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  outline: 2px solid transparent!important;
+  border-radius: 6px;
+  background-color: #27292d;
+  padding: 20px;
+  width: 450px;
+  color: white;
+  border: 0.3px solid #656565;
+  text-align: center;
+}
+
+.loginInner p{
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.loginInner h3{
+  margin-top: 10px;
+  color: white;
+  font-weight: 800;
+}
+
+.inputcontainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.inputdetails{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.inputdetails .inputinfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputdetails .inputinfo p{
+  font-weight: 600;
+  font-size: small;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.inputdetails .inputinfo h6{
+  font-weight: 500;
+  font-size: small;
+  color: rgba(255, 255, 255, 0.445);
+  margin-bottom: 5px;
+}
+
+.inputdetails .inputinfo h6:hover{
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.inputdetails .inputbox{
+  display: flex;
+  height: 36px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 6px;
+  border-width: 1.3px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);;
+}
+
+/* .inputdetails .inputbox:active{
+  border: 1px solid #3159dd;
+} */
+
+.inputbox p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.inputdetails .empty-inputbox{
+  border-color: red;
+}
+
+.inputbox input[type=email],.inputbox input[type=password],.inputbox input[type=text]{
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.inputbox input:active{
+  border: none;
+}
+
+.shwpswd {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.shwpswd:active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.forgotpwd h5 {
+  cursor: pointer;
+  margin: 6px;
+  font-family: "DM Sans", sans-serif;
+  color: #2e4aa9;
+}
+
+.forgotpwd h5:hover {
+  color: #793d1a;
+}
+
+.continuebtn{
+  height: 40px;
+  width: 100%;
+  margin-top: 40px;
+  border-radius: 6px;
+  background-color: #3159dd;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: "DM Sans", sans-serif;
+}
+
+.continuebtn:hover{
+    background-color: #182e74;
+}
+
+.textcenter{
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.spacedDivider{
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.spacedDivider hr{ 
+    width:100%;
+    height:0px; 
+}
+
+.spacedDivider h5{
+    color: #9a9a9a; 
+    padding: 0px 10px;
+}
+
+
+.googlesigninbtn {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #ffffff10;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  font-family: "DM Sans", sans-serif;
+  border: 1px solid #696969;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.googlesigninbtn:hover {
+  border-color: #000;
+}
+
+.googleicon {
+  width: 22px;
+  border-radius: 3px;
+}

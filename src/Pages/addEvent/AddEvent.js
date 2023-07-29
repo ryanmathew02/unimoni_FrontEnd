@@ -1,11 +1,23 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { storage } from '../../components/Firebase';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const AddEvent = () => {
+
+const AddEvent = ({checkLocal}) => {
     const [eventName, seteventName] = useState("");
     const [coverImg, setcoverImg] = useState([]);
     const [artists, setArtists] = useState([]);
+    const navigate = useNavigate();
+
+    
+    useEffect(()=> {
+        if(!checkLocal){
+            alert("Session Expired. Login Again");
+            navigate('/');
+        }
+    },[checkLocal])
 
     const upload = async (file, i) => {
         const imageRef = ref(storage, `Events/${eventName}/artist/`)
@@ -13,6 +25,23 @@ const AddEvent = () => {
         // const downloadURL = await getDownloadURL(snapshot.ref)
         // setArtists
     }
+
+    const apiCall = () => {
+        axios.post('http://localhost:5000/event/new',{
+            name: "skjvbkd"
+        }, {
+            headers: {
+                Authorization: `beare ${localStorage.getItem('token')}`
+            }
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
     return (
         <div >
             {/* slider_area */}
@@ -75,7 +104,7 @@ const AddEvent = () => {
                             <label>Event Active</label>
                             <input type="text"></input>
                             <br></br>
-                            <button></button>
+                            <button onClick={apiCall}>Click</button>
                         </div>
                     </div>
                 </div>
