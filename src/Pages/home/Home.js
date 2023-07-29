@@ -6,7 +6,8 @@ const Home = () => {
     const [data, setdata] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:5000/home/getHomeData").then(function (response) {
+        axios.get("https://unimoni-backend.vercel.app/home/getHomeData").then(function (response) {
+            console.log(response.data);
             setdata(response.data);
         })
     },[])

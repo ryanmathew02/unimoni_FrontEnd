@@ -21,7 +21,7 @@ const Login = ({setcheckLocal}) => {
     if(Email == "")
       return alert("Enter Email ID");
     else{
-      axios.post("http://localhost:5000/users/signIn",{
+      axios.post("https://unimoni-backend.vercel.app/users/signIn",{
         email: Email,
         password: Password
       })
@@ -50,7 +50,7 @@ const Login = ({setcheckLocal}) => {
     if (!Email.match(validRegex))
       return alert("Invalid Email format")
     else {
-      axios.post("http://localhost:5000/user/signUp", {
+      axios.post("https://unimoni-backend.vercel.app/user/signUp", {
         name: Name,
         email: Email,
         password: Password,

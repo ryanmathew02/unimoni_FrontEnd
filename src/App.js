@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      axios.post('http://localhost:5000/user/verify', {
+      axios.post('https://unimoni-backend.vercel.app/user/verify', {
         token: localStorage.getItem('token')
       })
         .then(response => {
