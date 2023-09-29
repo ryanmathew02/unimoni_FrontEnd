@@ -6,7 +6,7 @@ const Home = () => {
     const [data, setdata] = useState([])
 
     useEffect(() => {
-        axios.get("https://unimoni-backend.vercel.app/home/getHomeData").then(function (response) {
+        axios.get("http://localhost:5000/home/getHomeData").then(function (response) {
             console.log(response.data);
             setdata(response.data);
         })
@@ -28,7 +28,7 @@ const Home = () => {
                                         <img src={require('./../../img/shape/shape_2.svg')} alt=""></img>
                                     </div>
                                     <span className="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".3s"></span>
-                                    <h3 className="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">Concert Organizing Platform</h3>
+                                    <h3 className="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".4s">Join  The  Upcomming  Events  Now</h3>
                                     <p className="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s"></p>
                                 </div>
                             </div>

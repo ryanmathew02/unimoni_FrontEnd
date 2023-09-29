@@ -3,11 +3,11 @@ import "./Logi.css"
 import axios from 'axios'
 import { GoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
-
+import jwtDecode from "jwt-decode";
 
 
 const Login = ({setcheckLocal}) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const [Name, setName] = useState("")
   const [Email, setemail] = useState("")
   const [Password, setPassword] = useState("")
@@ -21,7 +21,7 @@ const Login = ({setcheckLocal}) => {
     if(Email == "")
       return alert("Enter Email ID");
     else{
-      axios.post("https://unimoni-backend.vercel.app/users/signIn",{
+      axios.post("http://localhost:5000/users/signIn",{
         email: Email,
         password: Password
       })
@@ -50,7 +50,7 @@ const Login = ({setcheckLocal}) => {
     if (!Email.match(validRegex))
       return alert("Invalid Email format")
     else {
-      axios.post("https://unimoni-backend.vercel.app/user/signUp", {
+      axios.post("http://localhost:5000/user/signUp", {
         name: Name,
         email: Email,
         password: Password,
@@ -65,12 +65,29 @@ const Login = ({setcheckLocal}) => {
     }
   }
 
-      const responseMessage = (response) => {
-        console.log(response);
-      };
-      const errorMessage = (error) => {
-        console.log(error);
-      };
+// user credentials after google signIn
+  const responseMessage = (response) => {
+    var userObject = jwtDecode(response.credential);
+    console.log(userObject);
+    axios.post("http://localhost:5000/google/google-Signing", userObject)
+    .then(function(res){
+      if(res.data.status==1){
+        localStorage.setItem('token', res.data.token);
+        setcheckLocal(true);
+        navigate("/");
+      } else {
+        alert(res.message);
+      }
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  };
+
+
+  const errorMessage = (error) => {
+    console.log(error);
+  };
 
   return (
     <div>

@@ -27,7 +27,7 @@ const AddEvent = ({checkLocal}) => {
     }
 
     const apiCall = () => {
-        axios.post('https://unimoni-backend.vercel.app/event/new',{
+        axios.post('http://localhost:5000/event/new',{
             name: "skjvbkd"
         }, {
             headers: {

@@ -1,9 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import imgsrc from "./../img/logo.png";
 import Login from '../Pages/signup/SignUp';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Header = ({checkLocal}) => {
+
+const Header = ({checkLocal, isHome, setisDash}) => {
+    const navigate = useNavigate(); 
+
+    const changeHome = () => {
+        setisDash(false);
+        navigate('/dashboard');
+    }
+
+    const SignOut = () => {
+        console.log('check signout');
+        localStorage.removeItem('token');
+        setisDash(true);
+        navigate('/');
+        window.location.reload(true)
+    }
 
     return (
         <header>
@@ -51,8 +66,13 @@ const Header = ({checkLocal}) => {
                                             <div className="buy_tkt">
                                                 <div className="book_btn d-none d-lg-block">
                                                     {/* <a href="#">SignUp/SignIn</a> */}
-                                                    <Link to="/dashboard">Profile</Link>
+                                                        <button onClick={changeHome}>Dashboard</button>
                                                 </div>
+                                                <br></br>
+                                                <div className="book_btn d-none d-lg-block">
+                                                    {/* <a href="#">SignUp/SignIn</a> */}
+                                                        <button onClick={SignOut}>SignOut</button>
+                                                </div>                                                
                                             </div>
                                         </div>
                                     ) : (
